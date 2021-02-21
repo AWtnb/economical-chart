@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>sample-chart</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='stlye.css'> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js" defer></script>
+    <script src='script.js' defer></script>
+</head>
+<body>
+    <div class="slidecontainer" id="sliders">
+        <div>供給曲線<input type="range" min="-10" max="10" value="0" step="0.1" class="slider" id="slider_supply"></div>
+        <div>需要曲線<input type="range" min="-10" max="10" value="0" step="0.1" class="slider" id="slider_demand"></div>
+    </div>
+
+    <div class="chart-container" style="position: relative; height:50vh; width:50vw">
+        <canvas id="myChart"></canvas>
+    </div>
+</body>
+</html>
