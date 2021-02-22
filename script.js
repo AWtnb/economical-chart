@@ -1,23 +1,23 @@
 // https://www.chartjs.org/samples/latest/
 
 const xs = [];
-for(let i=0; i<=200; i++) { xs.push(i*0.1); }
+for(let i=0; i<=100; i++) { xs.push(i*1); }
 
-function calc_supply(xs, deltax) {
-  return xs.map(x => 2*x + -1*deltax).map(y => {
-    if (10<=y && y<=30) {
-      return y;
-    }
-    return null;
+function calc_supply(xs, deltaX) {
+  const xShift = deltaX+10;
+  return xs.map(x => {
+    if (x < xShift) {return null}
+    if (x > xShift + 20) {return null}
+    return 1/20*(x-xShift)*(x-xShift)+10;
   });
 }
 
-function calc_demand(xs, deltax) {
-  return xs.map(x => -2*x + 40 + deltax).map(y => {
-    if (10<=y && y<=30) {
-      return y;
-    }
-    return null;
+function calc_demand(xs, deltaX) {
+  const xShift = deltaX+30;
+  return xs.map(x => {
+    if (x > xShift) {return null}
+    if (x < xShift-20) {return null}
+    return 1/20*(x-xShift)*(x-xShift)+10;
   });
 }
 
